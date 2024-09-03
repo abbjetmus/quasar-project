@@ -3,7 +3,13 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
+      {
+        path: '',
+        redirect: 'cakes'
+      },
+      { path: 'cakes', component: () => import('pages/CakesPage.vue') },
+      { path: 'cake/:id', component: () => import('pages/CakeDetailsPage.vue') },
+      { path: 'staff', component: () => import('pages/StaffPage.vue') }
     ]
   },
 
